@@ -1,0 +1,38 @@
+<job id="IncludeExample">
+   <script language="VBscript" src="libs\include.vbs"/>
+   <script language="VBscript" src="libs\vbsunit.vbs"/>
+   <script language="VBscript" src="libs\vbsunit_procedures.vbs"/>
+
+   <script language="VBScript">
+
+	  Set Args = WScript.Arguments 'Drag and Drop or Cmdline
+
+	  If Args.Count = 1 Then
+		
+		inFile = Args(0)
+		
+		dim position, test_file
+		position = instrRev(infile,"\")
+		test_file = right(infile, len(infile) - position)
+		
+		dim GLOBAL_PATH_VBSUNIT
+		GLOBAL_PATH_VBSUNIT = left(infile, instrRev(infile,"\"))
+		
+		Include(test_file)
+		
+		wscript.echo results()
+		wscript.echo errors_results()	
+	
+	  else	
+		
+		wscript.echo "You should put a test file name as parameter" & vbNewLine &_
+					 "If you installed the VBSUNit in win32 folder follow this example:" & vbNewLine &_
+					 "> vbsunit test_file.vbs" & vbNewLine & vbNewLine &_
+					 "If you are using cscript follow the next:" & vbNewLine &_
+					 "> cscript vbunit.wsf file_test.vbs" & vbNewLine & vbNewLine &_
+					 "Thanks for using VBSUnit! :)"
+		
+	  End If
+   
+   </script>
+</job>
