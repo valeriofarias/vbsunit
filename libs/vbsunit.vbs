@@ -73,6 +73,14 @@ class VBSUnit
 		assert regex.test(actual), message & " Expected:(" & expected & ") Actual: (" & actual & ")"
 	end sub
 	
+	public sub assert_true(asserted, message)
+		assert (asserted), message & " Asserted: (" & asserted & ")"
+	end sub
+	
+	public sub assert_false(asserted, message)
+		assert not (asserted), message & " Asserted: (" & asserted & ")"
+	end sub
+	
 	
 	Public function results()
 		

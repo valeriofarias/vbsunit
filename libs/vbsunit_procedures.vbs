@@ -12,6 +12,14 @@ sub assert_match(expected, actual, message)
 	tester.assert_match expected, actual, message	
 end sub
 
+sub assert_true(asserted, message)
+	tester.assert_true asserted, message	
+end sub
+
+sub assert_false(asserted, message)
+	tester.assert_false asserted, message	
+end sub
+
 function results()
 	results = tester.results()
 end function
