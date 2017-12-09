@@ -80,6 +80,14 @@ class VBSUnit
 	public sub assert_false(asserted, message)
 		assert not (asserted), message & " Asserted: (" & asserted & ")"
 	end sub
+
+	public sub assert_equal_eps(expected, actual, eps, message)
+		assert Abs(expected - actual) <= eps, message & " Expected:(" & expected & ") Actual: (" & actual & ") Epsilon: (" & eps & ")"
+	end sub
+	
+	public sub assert_not_equal_eps(expected, actual, eps, message)
+		assert  Abs(expected - actual) > eps, message & " Expected:(" & expected & ") Actual: (" & actual & ") Epsilon: (" & eps & ")"
+	end sub	
 	
 	
 	Public function results()

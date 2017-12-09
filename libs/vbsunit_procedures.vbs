@@ -20,6 +20,14 @@ sub assert_false(asserted, message)
 	tester.assert_false asserted, message	
 end sub
 
+sub assert_equal_eps(expected, actual, eps, message)
+ 	tester.assert_equal_eps expected, actual, eps, message	
+end sub
+
+sub assert_not_equal_eps(expected, actual, eps, message)
+ 	tester.assert_not_equal_eps expected, actual, eps, message	
+end sub
+
 function results()
 	results = tester.results()
 end function
